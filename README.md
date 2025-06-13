@@ -42,12 +42,12 @@ JobConnect/
 git clone https://github.com/saberabanu0001/JobConnect.git
 cd JobConnect
 
-###2. Compile the Application
+### 2. Compile the Application
 Make sure g++ is installed:
 
 g++ main.cpp sqlite3.c -o JobConnect
 
-###3. Run the App
+### 3. Run the App
 
 ./JobConnect.exe
 
