@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile SQLite C file",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-c",
+                "-x", "c", // ***MOVED THIS HERE***
+                "sqlite3.c", // Now `-x c` applies to this file
+                "-o",
+                "sqlite3.o",
+                "-std=c99", // Ensure C99 standard
+                "-Wno-error=incompatible-pointer-types", // Suppress pointer type warnings as errors
+                "-Wno-error=unused-value", // Suppress other common warnings as errors
+                "-Wno-error=discarded-qualifiers",
+                "-Wno-error=return-type",
+                "-Wno-error=sequence-point",
+                "-Wno-error=parentheses",
+                "-Wno-error=int-conversion" // Keep this one, as it addresses void* conversions
+                // ***REMOVED "-Wno-error=string-plus-int"***
+            ],
+            "group": "build",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compiling sqlite3.c strictly as a C file using g++."
+        },
+        {
+            "label": "Build JobConnect with SQLite",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "main.cpp",
+                "sqlite3.o",
+                "-o",
+                "JobConnect.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Building JobConnect executable by linking with SQLite object."
+        }
+    ]
+}

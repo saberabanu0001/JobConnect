@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**", // This is usually good for finding headers in your project
+                // --- REMOVE THE OLD MYSQL INCLUDE PATH ---
+                // "C:\\Users\\user\\Downloads\\mysql-connector-c++-8.3.0-winx64\\mysql-connector-c++-8.3.0-winx64\\include\\jdbc"
+                // --- NEW: Add path to SQLite header if not in workspaceFolder root ---
+                // If sqlite3.h is directly in your JobConnect folder, ${workspaceFolder}/** covers it.
+                // If you put it in a subfolder like 'sqlite_src', then add:
+                // "${workspaceFolder}/sqlite_src"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.19041.0",
+            "compilerPath": "C:\\MinGW\\bin\\g++.exe", // Keep this, as you're using MinGW g++
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        }
+    ],
+    "version": 4
+}
